@@ -1,3 +1,9 @@
+// we need to understand why its preferrable to use express.js
+// instead of using http module
+
+// express is built on top of node -> more specifically on top of http module
+// thus we cant use express without using node
+
 const http = require('http')
 
 const server = http.createServer((req, res) => {
