@@ -15,6 +15,7 @@ const server = http.createServer( (req,res) => {
     // 'res' is the response object to respond to the browser in a meaningful manner
     res.write('<h1>home page </h1>');
     // 'end' means the communication is over/finished
+    
     res.end();
     
 })
