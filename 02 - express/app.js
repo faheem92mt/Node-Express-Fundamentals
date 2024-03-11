@@ -2,6 +2,10 @@
 
 // creating an object called http
 const http = require('http');
+const {readFileSync} = require('fs');
+
+// get all files
+const homePage = readFileSync('./index.html');
 
 // on the object 'http', we have a method called 'createServer' 
 // the method 'createServer' takes a callback which is going to be invoked everytime 
@@ -15,7 +19,7 @@ const server = http.createServer( (req,res) => {
         res.writeHead(200, {'content-type' : 'text/html'})
 
         // 'res' is the response object to respond to the browser in a meaningful manner
-        res.write('<h1>Home Page</h1>');
+        res.write(homePage);
         // 'end' means the communication is over/finished
         // somewhere saw send ; but here end
         res.end();
