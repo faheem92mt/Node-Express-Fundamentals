@@ -15,8 +15,21 @@ app.use(express.static('./public'))
 // thanks to express, we dont have to set up the paths, the mime types, status codes
 
 app.get('/', (req,res) => {
-    // res.sendFile('./navbar-app/index.html');
-    res.sendFile(path.resolve(__dirname, './navbar-app/index.html'));
+
+    // res.sendFile('./navbar-app/index.html'); // this dont work
+
+    // option 1
+    // res.sendFile(path.resolve(__dirname, './navbar-app/index.html'));
+
+    // option 2 - adding to static assets i.e using from the 'public' folder
+    // index.html is always going to be a root
+    // so when the user hits the server, by default the server will serve the index.html...
+    // .. from the public folder
+
+    // option 3 - server side rendering - to dynamically display content
+    // for example - to show the name of the user who has logged in
+    // we need to use template engine for that
+    //
 })
 
 app.all('*', (req,res) => {
