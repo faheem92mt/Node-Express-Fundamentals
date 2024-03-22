@@ -1,0 +1,15 @@
+const express = require('express');
+const app = express();
+
+// This is the most basic API
+app.get('/', (req,res) => {
+    // this parameter can be any JSON type - object, array, string
+    res.json( [{name: 'faheem'}, {name: 'cat'}]);
+})
+// This serves our data (JSON)
+
+// Thus people can fetch JSON data from our API
+
+app.listen(5000, () => {
+    console.log('server is listening on port 5000');
+})
