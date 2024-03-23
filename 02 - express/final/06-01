@@ -4,7 +4,7 @@ const app = express();
 // This is the most basic API
 app.get('/', (req,res) => {
     // this parameter can be any JSON type - object, array, string
-    res.json( [{name: 'faheem'}, {name: 'cat'}]);
+    res.json( [{name: 'faheem'}, {name: 'cat'}] );
 })
 // This serves our data (JSON)
 
