@@ -23,10 +23,40 @@ app.get('/api/products', (req, res) => {
     
   })
 
-app.get('/api/products/1', (req,res) => {
-    const singleProduct = products.find( (product) => product.id === 1 )
-    res.json(singleProduct);
+// app.get('/api/products/1', (req,res) => {
+//     const singleProduct = products.find( (product) => product.id === 1 )
+//     res.json(singleProduct);
+// })
+
+// but what if we have 100s or 1000s of products
+// are we going to write code for each
+// we should use route parameters instead of hard coding for each product
+
+app.get('/api/products/:shawarma', (req,res) => {
+    // console.log(req);
+
+    // console.log(req.params);
+    // { shawarma: '1' }
+
+    const {shawarma} = req.params;
+    // console.log(shawarma);
+    // 1
+
+    const singleProduct = products.find( (product) => product.id === Number(shawarma) )
+
+    if(!singleProduct) {
+        return res.status(404).send('product not available');
+    }
+
+    // console.log(singleProduct);
+    return res.json(singleProduct);
 })
+
+app.get('/api/products/:productID/reviews/:reviewID', (req, res) => {
+    console.log(req.params)
+    res.send('hello world')
+})
+
 
 app.listen(5000, () => {
     console.log('Server is listening on port 5000....')
