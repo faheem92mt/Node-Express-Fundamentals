@@ -57,6 +57,33 @@ app.get('/api/products/:productID/reviews/:reviewID', (req, res) => {
     res.send('hello world')
 })
 
+app.get('/api/v1/query', (req,res) => {
+    // console.log(req.query);
+    // { search: 'a', limit: '2' }
+    const { search, limit } = req.query;
+    let sortedProducts = [...products];
+
+    if(search){
+      // just like how we use 'i' in for loop
+      // productsssff will act like that as a temporary variable
+      // to hold each product in the array 'sortedProducts'
+      sortedProducts = sortedProducts.filter( (productsssff) => {
+        return productsssff.name.startsWith(search);
+      })
+    }
+    if(limit){
+      sortedProducts = sortedProducts.slice(0, Number(limit));
+    }
+
+    if (sortedProducts.length < 1) {
+      // res.status(200).send('no products matched your search');
+      return res.status(200).json({ sucess: true, data: [] })
+    }
+
+    // res.send('yo')
+    res.status(200).json(sortedProducts)
+})
+
 
 app.listen(5000, () => {
     console.log('Server is listening on port 5000....')
