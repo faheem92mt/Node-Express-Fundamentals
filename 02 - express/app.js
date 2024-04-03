@@ -3,6 +3,7 @@
 
 const express = require('express')
 const app = express()
+
 const { products } = require('./data')
 
 app.get('/', (req, res) => {
@@ -56,6 +57,17 @@ app.get('/api/products/:productID/reviews/:reviewID', (req, res) => {
     console.log(req.params)
     res.send('hello world')
 })
+
+
+// Query String Parameters aka url Parameters
+// ---------------------------------------------
+// a way for us to send small amounts of info.
+// to the server
+// using the url
+
+// this info is usually used as parameters to query the database or
+// filter results
+// this depends on who is setting up the server
 
 app.get('/api/v1/query', (req,res) => {
     // console.log(req.query);
