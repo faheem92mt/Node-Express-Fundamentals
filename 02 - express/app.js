@@ -1,46 +1,42 @@
 const express = require('express')
 const app = express()
 
-const logger = require('./logger')
-const authorize = require('./authorize')
+// to get data
+let {people} = require('./data')
 
-// Middleware can be custom (your own), provided by express, or third-party
+// static assets (for front end)
+app.use(express.static('./methods-public'))
 
-// app.use has to be placed before the .get
-// basically the middleware has to be placed before the route methods
-// THIS is how use a single middleware
-// app.use(logger);
+// express.urlencoded() is a method inbuilt in express 
+// to recognize the incoming Request Object as strings or arrays
+app.use(express.urlencoded({extended: false}))
 
-// THIS is how use multiple middlewares
-app.use([logger, authorize]);
-
-// this will apply the middleware to all the urls that start with /api
-// app.use('/api', logger);
-
-// req => middleware => res u
-
-app.get('/', (req,res) => {
-  res.send("Home")
+// display data in json
+app.get('/api/people', (req,res) => {
+  res.status(200).json({success:true, data:people})
 })
 
-app.get('/about', (req,res) => {
-  res.send("About")
+// add data
+app.post('/login', (req,res) => {
+  // console.log(req.body);
+  // res.send('post')
+
+  const { name } = req.body
+
+  if (!name) {
+    return res
+      .status(400)
+      .json({ success: false, msg: 'please provide name value' })
+  }
+
+  res.status(201).json({ success: true, person: name })
+  
 })
 
-app.get('/api/products', (req,res) => {
-  res.send("Products")
-})
 
-app.get('/api/items', (req,res) => {
-  console.log(req.user)
-  res.send("Items")
-})
 
-// to use only for one app. method
-// app.get('/api/items', [logger, authorize] , (req,res) => {
-//   console.log(req.user)
-//   res.send("Items")
-// })
+
+
 
 app.listen(5000, () => {
     console.log('Server is listening on port 5000....')

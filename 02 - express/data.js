@@ -29,14 +29,14 @@ const products = [
     image:
       'https://dl.airtable.com/.attachments/3245c726ee77d73702ba8c3310639727/f000842b/product-5.jpg',
     price: 9.99,
-    desc: `I'm baby direct trade farm-to-table hell of, YOLO readymade raw denim venmo whatever organic gluten-free kitsch schlitz irony af flexitarian.`,
+    desc: `I'm baby direct trade farm-to-table of, YOLO readymade raw denim venmo whatever organic gluten-free kitsch schlitz irony af flexitarian.`,
   },
 ]
 const people = [
-  { id: 1, name: 'john' },
-  { id: 2, name: 'peter' },
-  { id: 3, name: 'susan' },
-  { id: 4, name: 'anna' },
-  { id: 5, name: 'emma' },
+  { id: 1, name: 'faheem' },
+  { id: 2, name: 'ayesha' },
+  { id: 3, name: 'hafsa' },
+  { id: 4, name: 'cat' },
+  { id: 5, name: 'duck' },
 ]
 module.exports = { products, people }
