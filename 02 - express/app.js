@@ -21,7 +21,7 @@ app.get('/api/people', (req,res) => {
   res.status(200).json({success:true, data:people})
 })
 
-// add data
+// add data (url encoded)
 app.post('/login', (req,res) => {
   // console.log(req.body);
   // res.send('post')
@@ -38,6 +38,7 @@ app.post('/login', (req,res) => {
 
 })
 
+// add data (json)
 app.post('/api/people', (req,res) => {
   const {name} = req.body;
 
@@ -47,6 +48,24 @@ app.post('/api/people', (req,res) => {
 
   res.status(201).json({ success: true, person: name })
 })
+
+// postman
+app.post('/api/postman/people', (req,res) => {
+  const {name} = req.body;
+
+  if (!name) {
+    return res.status(400).json({success:false, msg: 'pls provide name value'})
+  }
+
+  res.status(201).send({success: true, data: [...people, name]});
+})
+
+app.put('/api/people/:id', (req,res) => {
+  
+})
+
+
+
 
 
 
