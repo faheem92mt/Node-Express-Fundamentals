@@ -1,27 +1,19 @@
 const express = require('express')
+const path = require('path')
+
 const app = express()
 
-// to get data
-let people = require('./routes/people')
+// setup static and middleware
+// app.use(express.static('./public'))
 
-let auth = require('./routes/auth')
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve(__dirname, './navbar-app/index.html'))
+})
 
-// static assets (for front end)
-app.use(express.static('./methods-public'))
-
-app.use('/api/people', people);
-
-app.use('/login', auth);
-
-// parse json
-app.use(express.json())
-
-// express.urlencoded() is a method inbuilt in express 
-// to recognize the incoming Request Object as strings or arrays
-app.use(express.urlencoded({extended: false}))
-
-
+app.all('*', (req, res) => {
+  res.status(404).send('resource not found')
+})
 
 app.listen(5000, () => {
-    console.log('Server is listening on port 5000....')
+  console.log('server is listening on port 5000....')
 })
