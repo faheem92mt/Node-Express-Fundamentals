@@ -1,10 +1,10 @@
 // CommonJS, every file is module (by default)
 // Modules - Encapsulated Code (only share minimum)
 
-const names = require('./4-names');
-const saySalam = require('./5-utils');
+const names = require('./04-names');
+const saySalam = require('./05-utils');
 
-const lolll = require('./6-alternative-flavor');
+const lolll = require('./06-alternative-flavor');
 
 // console.log(lolll);
 
@@ -17,4 +17,4 @@ const lolll = require('./6-alternative-flavor');
 // The main idea is that -----> every .js file is a module & 
 // when it comes to modules, we are in charge of what we are sharing
 
-require('./7-mind-grenade');
+// require('./07-mind-grenade');

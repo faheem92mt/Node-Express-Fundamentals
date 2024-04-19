@@ -22,6 +22,7 @@ app.get('/api/products', (req, res) => {
   
     res.json(newProducts)
     
+    
   })
 
 // app.get('/api/products/1', (req,res) => {

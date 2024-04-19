@@ -17,7 +17,7 @@
 //     'Soft Eng'
 // }
 
-// clearly this is a new fancy $@*)%
+// clearly this is a new fancy thing
 const {readFileSync, writeFileSync} = require('fs');
 
 const first = readFileSync('./content/first.txt', 'utf8');
