@@ -1,10 +1,16 @@
 // CommonJS, every file is module (by default)
 // Modules - Encapsulated Code (only share minimum)
 
-const names = require('./04-names');
+// const names = require('./04-names');
+
+const {Ali} = require('./04-names');
+const {Salman} = require('./04-names');
+
 const saySalam = require('./05-utils');
 
 const lolll = require('./06-alternative-flavor');
+
+saySalam(Ali)
 
 // console.log(lolll);
 
