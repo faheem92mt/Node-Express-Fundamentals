@@ -10,7 +10,7 @@ const saySalam = require('./05-utils');
 
 const lolll = require('./06-alternative-flavor');
 
-saySalam(Ali)
+saySalam(Ali);
 
 // console.log(lolll);
 

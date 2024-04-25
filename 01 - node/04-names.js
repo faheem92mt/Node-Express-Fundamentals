@@ -7,5 +7,6 @@ const Salman = "Salman";
 
 // to share
 module.exports = {Ali, Salman};
+// module.exports = Ali;
 
 // console.log(module);
