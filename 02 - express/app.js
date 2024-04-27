@@ -1,18 +1,43 @@
 const express = require('express')
 const app = express()
 
-const logger = require('./logger')
+let {people} = require('./data')
 
-// req => middleware => res
+// to use static assets - to start off the homepage at index.html
+app.use(express.static('./methods-public'))
 
-app.get('/', logger ,(req,res) => {
-  res.send("Home")
+// parse form data - ???
+app.use(express.urlencoded({ extended: false }))
+
+
+
+
+// for regular form
+app.post('/login', (req, res) => {
+  const { name } = req.body
+
+  if (name) {
+    return res.status(200).send(`Welcome ${name}`)
+  }
+
+  res.status(401).send('Please Provide Credentials')
 })
 
-app.get('/about', logger, (req,res) => {
-  res.send("About")
+// for js form - this is from where - the js form fetches data
+app.get('/api/people', (req,res) => {
+  res.status(200).json({success:true, data:people})
 })
 
-app.listen(5000, () => {
-  console.log('Server is listening on port 5000....')
+app.post('/api/people', (req,res) => {
+  
+})
+
+
+
+
+
+
+
+app.listen(5000, ()=> {
+  console.log("Server is listening on port 5000");
 })

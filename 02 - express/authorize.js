@@ -4,8 +4,8 @@ const authorize = (req,res,next) => {
 
     if (user === 'faheem') {
         // just simply
-        req.user = {name: 'faheem', id: 3}
-        // console.log(req.user);
+        // req.user = {name: 'faheem', id: 3}
+        console.log(req.user);
         
         // authorizing to go show content
         next();
