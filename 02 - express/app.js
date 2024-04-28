@@ -29,7 +29,7 @@ app.get('/api/people', (req,res) => {
 })
 
 app.post('/api/people', (req,res) => {
-  
+  console.log("hello");
 })
 
 
