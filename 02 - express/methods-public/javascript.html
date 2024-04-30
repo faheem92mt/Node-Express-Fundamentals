@@ -78,6 +78,9 @@
       // this is to fetch data from api/people as defined in the server
       const fetchPeople = async () => {
         try {
+          // as we defined app.get -> api/people in the server
+          // which has a "data" field 
+          // we fetch the data from "data"
           const { data } = await axios.get('/api/people')
 
           const people = data.data.map((person) => {
