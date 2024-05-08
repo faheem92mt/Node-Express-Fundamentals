@@ -47,6 +47,8 @@ app.post('/api/postman/people', (req, res) => {
 
 
 app.put('/api/people/:id', (req, res) => {
+  // from url -> [id=the one who will change]
+  // from input -> [name=the new name]
   const { id } = req.params
   const { name } = req.body
 
