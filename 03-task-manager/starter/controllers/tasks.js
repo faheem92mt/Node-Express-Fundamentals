@@ -2,12 +2,14 @@ const getAllTasks = (req,res) => {
     res.send('get all tasks')
 }
 
+// sending json data and getting back that json data
 const createTask = (req,res) => {
-    res.send('create task')
+    res.json(req.body)
 }
 
+// getting back the :id from the url
 const getTask = (req,res) => {
-    res.send('get task')
+    res.json({id: req.params.id})
 }
 
 const updateTask = (req,res) => {
