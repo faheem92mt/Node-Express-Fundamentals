@@ -1,10 +1,14 @@
+// Model (MVC) --- schema
+const Task = require('../models/tasks')
+
 const getAllTasks = (req,res) => {
     res.send('get all tasks')
 }
 
 // sending json data and getting back that json data
-const createTask = (req,res) => {
-    res.json(req.body)
+const createTask = async (req,res) => {
+    const task = await Task.create(req.body)
+    res.status(201).json({task})
 }
 
 // getting back the :id from the url
